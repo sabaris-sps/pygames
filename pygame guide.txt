@@ -1,0 +1,15 @@
+pygame.init()
+pygame.font.init()
+pygame.mixer.init()
+screen.blit(object, pos) - like assigning pixels
+pygame.display.update()
+player = pygame.image.load(img_file).convert() - if convert not given blit func takes time, now not
+bg = pygame.image.load(img_file).convert()
+screen = pygame.display.set_mode((width, height))
+
+while True:
+    for event in pygame.event.get():
+        if event.type in pygame.QUIT:
+            pygame.quit()
+			
+image.get_rect().move(x,y)
