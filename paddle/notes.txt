@@ -1,0 +1,4 @@
+win = turtle.Screen()
+win.title("")
+win.bgcolor("")
+win.setup(width, height)
