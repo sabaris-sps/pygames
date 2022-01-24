@@ -142,9 +142,9 @@ class Enemy(object):
                 self.walk_count += 1
             self.hitbox = (self.x+17, self.y+2, 30, 60)
             # pygame.draw.rect(
-            #     window, RED, (self.hitbox[0], self.hitbox[1] - 20, 50, 10))
+            #     window, RED, (self.x, self.y - 20, 50, 10))
             # pygame.draw.rect(
-            #     window, BLUE, (self.hitbox[0], self.hitbox[1] - 20, self.health * 0.5, 10))
+            #     window, BLUE, (self.x, self.y - 20, self.health * 0.5, 10))
 
     def move(self):
         if self.vel > 0:
@@ -216,8 +216,8 @@ while run:
     clock.tick(FPS)
 
     if enemy.visible:
-        if player.hitbox[1] < enemy.hitbox[1] + enemy.hitbox[3] and player.hitbox[1] + player.hitbox[3] > enemy.hitbox[1]:
-            if player.hitbox[0] + player.hitbox[2] > enemy.hitbox[0] and player.hitbox[0] < enemy.hitbox[0] + enemy.hitbox[2]:
+        if player.y < enemy.y + enemy.height and player.y + player.height > enemy.y:
+            if player.x + player.width > enemy.x and player.x < enemy.x + enemy.width:
                 player.hit()
                 SCORE -= 10
 
@@ -237,8 +237,8 @@ while run:
 
     for bullet in bullets:
         if enemy.visible:
-            if bullet.y - bullet.width < enemy.hitbox[1] + enemy.hitbox[3] and bullet.y + bullet.width > enemy.hitbox[1]:
-                if bullet.x + bullet.width > enemy.hitbox[0] and bullet.x - bullet.width < enemy.hitbox[0] + enemy.hitbox[2]:
+            if bullet.y - bullet.width < enemy.y + enemy.height and bullet.y + bullet.width > enemy.y:
+                if bullet.x + bullet.width > enemy.x and bullet.x - bullet.width < enemy.x + enemy.width:
                     BULLET_HIT.play()
                     bullets.remove(bullet)
                     SCORE += 1
