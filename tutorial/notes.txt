@@ -1,0 +1,9 @@
+import pygame
+
+create window
+
+load images
+
+draw window
+
+go through loop and tick the clock and check for quit event
